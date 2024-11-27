@@ -1,0 +1,31 @@
+.gradiant {
+    width: 100vw;
+    height: 35vw;
+    object-fit: cover;
+}
+
+.space-top-bot {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.color-space {
+    padding-top: 0.2%;
+    padding-bottom: 0.2%;
+}
+
+.color-block {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.space-button {
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+.error {
+    color: red;
+}

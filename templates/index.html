@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorpalette Generator</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+        crossorigin="anonymous">
+</head>
+
+<body>
+
+<img class="gradiant" src="static/assets/img/{{ name }}">
+
+<div class="container space-top-bot">
+    <div class="row align-items-left">
+        <div class="col-md-4 col-4 text-left">
+            <form action="{{ url_for('home') }}" method="post" enctype="multipart/form-data">
+                <input class="btn btn-primary" type="submit" value="submit">
+                <input name="file" type="file">
+            </form>
+        </div>
+        <div class="col-md-4 col-4 text-left">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <p class="error">{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        </div>
+    </div>
+</div>
+
+<div class="color-palette">
+
+    {% for c in colors %}
+
+    <div class="container color-space">
+        <div class="row align-items-left">
+            <div class="col-md-3 col-3 text-left">
+                <p>Pixels: {{ colors[c] }}</p>
+            </div>
+            <div class="col-md-3 col-3 text-left">
+                <p>Hexcode: {{ c }}</p>
+            </div>
+            <div class="col-md-3 col-3 text-left">
+                <div class="color-block" style="background-color: rgb{{ c }};"></div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>
